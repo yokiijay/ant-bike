@@ -1,53 +1,63 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import MenuConfig from '../../resources/menuConfig'
+import './style.less'
 
 // Components
 import {
 	Layout, 
 	Menu,
-	Icon
+	Icon,
+	Typography
 } from 'antd'
 const { SubMenu } = Menu
 
 class NavLeft extends Component {
+	state = {
+		menuTreeNode: []
+	}
+
 	render(){
 		return(
 			<Layout.Sider
+				className='navLeft'
 				collapsible
 				collapsed={this.props.collapsed}
 				onCollapse={this.props.toggle}
+				theme='light'
 			>
-				<div className="logo" />
-				<Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-					<Menu.Item key="1">
-						<Icon type="pie-chart" />
-						<span>Option 1</span>
-					</Menu.Item>
-					<Menu.Item key="2">
-						<Icon type="desktop" />
-						<span>Option 2</span>
-					</Menu.Item>
-					<SubMenu
-						key="sub1"
-						title={<span><Icon type="user" /><span>User</span></span>}
-					>
-						<Menu.Item key="3">Tom</Menu.Item>
-						<Menu.Item key="4">Bill</Menu.Item>
-						<Menu.Item key="5">Alex</Menu.Item>
-					</SubMenu>
-					<SubMenu
-						key="sub2"
-						title={<span><Icon type="team" /><span>Team</span></span>}
-					>
-						<Menu.Item key="6">Team 1</Menu.Item>
-						<Menu.Item key="8">Team 2</Menu.Item>
-					</SubMenu>
-					<Menu.Item key="9">
-						<Icon type="file" />
-						<span>File</span>
-					</Menu.Item>
-				</Menu>
+				<div className="logo">
+					<img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt=""/>
+					<Typography.Title className='title' level={this.props.collapsed ? 4 : 3} ellipsis> Dashboard </Typography.Title>
+				</div>
+				<Menu
+          defaultSelectedKeys={['/home']}
+          mode='vertical'
+        >
+          { this.state.menuTreeNode }
+        </Menu>
 			</Layout.Sider>
 		)
+	}
+
+	componentDidMount(){
+		const menuTreeNode = this.renderMenu(MenuConfig)
+
+		this.setState({
+			menuTreeNode
+		})
+	}
+	renderMenu = (data)=>{
+		return data.map((item,index)=>{
+			if(item.children){
+				return <SubMenu key={item.key} title={item.icon?<span><Icon type={item.icon} /><span>{item.title}</span></span>:<span>{item.title}</span>}>
+					{ this.renderMenu(item.children) }
+				</SubMenu>
+			}
+		return <Menu.Item key={item.key}>
+				{item.icon?<Icon type={item.icon} />:null}
+				<span>{item.title}</span>
+			</Menu.Item>
+		})
 	}
 }
 

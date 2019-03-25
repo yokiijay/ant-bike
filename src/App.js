@@ -1,5 +1,5 @@
 /* Admin */
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import './theme.less'
 import './style.less'
 
@@ -9,10 +9,7 @@ import Content from './Components/Content'
 import Footer from './Components/Footer'
 import NavLeft from './Components/NavLeft'
 import {
-  Row, Col,
-  Layout,
-  Menu,
-  Icon
+  Layout
 } from 'antd'
 
 class App extends Component {

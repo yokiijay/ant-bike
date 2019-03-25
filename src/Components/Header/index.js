@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 // Components
 import {
 	Layout, 
-	Icon,
 	Typography
 } from 'antd'
 const { Title, Text } = Typography

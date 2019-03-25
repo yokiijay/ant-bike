@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 // Components
 import {
@@ -9,7 +9,7 @@ class App extends Component {
 	render(){
 		return(
 			<Layout.Footer  style={{ textAlign: 'center' }}>
-				Ant Design ©2018 Created by Ant UED
+				Dashboard Design ©2019 Created by <u><i>Yokiijay</i></u>
 			</Layout.Footer>
 		)
 	}
