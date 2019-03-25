@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* Admin */
+import React, { Component, Fragment } from 'react'
+import './theme.less'
+import './style.less'
+
+// Components
+import Header from './Components/Header'
+import Content from './Components/Content'
+import Footer from './Components/Footer'
+import NavLeft from './Components/NavLeft'
+import {
+  Row, Col,
+  Layout,
+  Menu,
+  Icon
+} from 'antd'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+  state = {
+    collapsed: false,
+  }
+
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+
+  render(){
+    return(
+      <Layout className='main'>
+        <NavLeft
+					collapsed={this.state.collapsed}
+					toggle={this.toggle}
+        />
+
+        <Layout>
+          <Header collapsed={this.state.collapsed} />
+          <Content />
+          <Footer />
+        </Layout>
+      </Layout>
+    )
   }
 }
 
-export default App;
+export default App
