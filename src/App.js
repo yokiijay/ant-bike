@@ -1,16 +1,15 @@
 /* Admin */
 import React, { Component } from 'react'
-import './theme.less'
 import './style.less'
 
 // Components
 import Header from './Components/Header'
-import Content from './Components/Content'
 import Footer from './Components/Footer'
 import NavLeft from './Components/NavLeft'
 import {
   Layout
 } from 'antd'
+import Home from './Pages/Home'
 
 class App extends Component {
   state = {
@@ -33,7 +32,11 @@ class App extends Component {
 
         <Layout>
           <Header collapsed={this.state.collapsed} />
-          <Content />
+          <Layout.Content
+            style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}
+          >
+            <Home />
+          </Layout.Content>
           <Footer />
         </Layout>
       </Layout>

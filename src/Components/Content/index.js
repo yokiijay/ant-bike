@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import {
 	Layout, 
 } from 'antd'
+import Home from '../../Pages/Home'
 
 class Content extends Component {
 	render(){
@@ -12,7 +13,7 @@ class Content extends Component {
 				margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
 			}}
 			>
-				Content
+				<Home />
 			</Layout.Content>
 		)
 	}

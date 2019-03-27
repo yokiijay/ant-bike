@@ -1,4 +1,14 @@
+@import '../../theme.less';
+
 .navLeft {
+	// border-right: 1px solid @gray-1;
+	box-shadow: 1px 0 20px @gray-1;
+	min-height: 100vh;
+
+	.ant-layout-sider-trigger {
+		background: none;
+	}
+
 	.logo{
 		display: flex;
 		justify-content: center;
@@ -11,10 +21,14 @@
 		.title{
 			width: 100%;
 			text-align: center;
-			color: royalblue;
+			color: @primary-color;
 		}
 		h4{
 			font-size: 13px;
 		}
+	}
+
+	.menu {
+		border: none;
 	}
 }

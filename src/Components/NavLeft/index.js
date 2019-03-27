@@ -31,7 +31,8 @@ class NavLeft extends Component {
 				</div>
 				<Menu
           defaultSelectedKeys={['/home']}
-          mode='vertical'
+					mode='vertical'
+					className='menu'
         >
           { this.state.menuTreeNode }
         </Menu>
