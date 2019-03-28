@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import './style.less'
-import axios from 'axios'
 import fetchJsonp from 'fetch-jsonp'
 
 // Components
 import {
-	Layout, 
-	Typography,
+	Layout,
 	Row, Col,
 	Button
 } from 'antd'
-import { cast } from 'rsvp';
-const { Title, Text } = Typography
 
 class Header extends Component {
 	state = {

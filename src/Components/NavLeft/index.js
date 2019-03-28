@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MenuConfig from '../../resources/menuConfig'
 import './style.less'
+import { Link } from 'react-router-dom'
 
 // Components
 import {
@@ -54,10 +55,12 @@ class NavLeft extends Component {
 					{ this.renderMenu(item.children) }
 				</SubMenu>
 			}
-		return <Menu.Item key={item.key}>
-				{item.icon?<Icon type={item.icon} />:null}
-				<span>{item.title}</span>
-			</Menu.Item>
+			return <Menu.Item key={item.key}>
+					<Link to={item.key}>
+						{item.icon?<Icon type={item.icon} />:null}
+						<span>{item.title}</span>
+					</Link>
+				</Menu.Item>
 		})
 	}
 }

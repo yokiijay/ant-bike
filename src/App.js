@@ -9,7 +9,6 @@ import NavLeft from './Components/NavLeft'
 import {
   Layout
 } from 'antd'
-import Home from './Pages/Home'
 
 class App extends Component {
   state = {
@@ -35,7 +34,7 @@ class App extends Component {
           <Layout.Content
             style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}
           >
-            <Home />
+            { this.props.children }
           </Layout.Content>
           <Footer />
         </Layout>
