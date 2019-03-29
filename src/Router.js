@@ -4,8 +4,9 @@ import { HashRouter as Router, Route, Link, Switch, Redirect } from 'react-route
 // Components
 import App from './App'
 import Home from './Pages/Home'
-import Buttons from './Pages/UI/Buttons'
 import NoMatch from './Pages/NoMatch'
+import Buttons from './Pages/UI/Buttons'
+import Modals from './Pages/UI/Modals'
 
 export default class extends Component {
 	render(){
@@ -18,6 +19,7 @@ export default class extends Component {
 								<Route exact path='/' render={()=><Redirect to='/home' />} />
 								<Route path='/home' component={ Home } />
 								<Route path='/ui/buttons' component={ Buttons } />
+								<Route path='/ui/modals' component={ Modals } />
 								<Route component={ NoMatch } />
 							</Switch>
 						</App>

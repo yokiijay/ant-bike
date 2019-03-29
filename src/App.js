@@ -29,10 +29,10 @@ class App extends Component {
 					toggle={this.toggle}
         />
 
-        <Layout>
+        <Layout className='right'>
           <Header collapsed={this.state.collapsed} />
           <Layout.Content
-            style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}
+            style={{margin: '24px 16px', padding: 24, minHeight: 280}}
           >
             { this.props.children }
           </Layout.Content>
