@@ -67,50 +67,6 @@ class Buttons extends Component {
 					<Button type='default' size={this.state.size}>i am button</Button>
 					<Button type='danger' size={this.state.size}>i am button</Button>
 				</Card>
-
-				<Card title='按钮尺寸' bordered={false} hoverable={true}>
-					<Radio.Group>
-						<Radio onClick={this.handleSize} value='small'>小</Radio>
-						<Radio onClick={this.handleSize} value='default'>中</Radio>
-						<Radio onClick={this.handleSize} value='large'>大</Radio>
-					</Radio.Group>
-					<Button type='primary' size={this.state.size}>i am button</Button>
-					<Button type='default' size={this.state.size}>i am button</Button>
-					<Button type='danger' size={this.state.size}>i am button</Button>
-				</Card>
-
-				<Card title='按钮尺寸' bordered={false} hoverable={true}>
-					<Radio.Group>
-						<Radio onClick={this.handleSize} value='small'>小</Radio>
-						<Radio onClick={this.handleSize} value='default'>中</Radio>
-						<Radio onClick={this.handleSize} value='large'>大</Radio>
-					</Radio.Group>
-					<Button type='primary' size={this.state.size}>i am button</Button>
-					<Button type='default' size={this.state.size}>i am button</Button>
-					<Button type='danger' size={this.state.size}>i am button</Button>
-				</Card>
-
-				<Card title='按钮尺寸' bordered={false} hoverable={true}>
-					<Radio.Group>
-						<Radio onClick={this.handleSize} value='small'>小</Radio>
-						<Radio onClick={this.handleSize} value='default'>中</Radio>
-						<Radio onClick={this.handleSize} value='large'>大</Radio>
-					</Radio.Group>
-					<Button type='primary' size={this.state.size}>i am button</Button>
-					<Button type='default' size={this.state.size}>i am button</Button>
-					<Button type='danger' size={this.state.size}>i am button</Button>
-				</Card>
-
-				<Card title='按钮尺寸' bordered={false} hoverable={true}>
-					<Radio.Group>
-						<Radio onClick={this.handleSize} value='small'>小</Radio>
-						<Radio onClick={this.handleSize} value='default'>中</Radio>
-						<Radio onClick={this.handleSize} value='large'>大</Radio>
-					</Radio.Group>
-					<Button type='primary' size={this.state.size}>i am button</Button>
-					<Button type='default' size={this.state.size}>i am button</Button>
-					<Button type='danger' size={this.state.size}>i am button</Button>
-				</Card>
 			</div>
 		)
 	}

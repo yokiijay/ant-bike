@@ -7,6 +7,7 @@ import Home from './Pages/Home'
 import NoMatch from './Pages/NoMatch'
 import Buttons from './Pages/UI/Buttons'
 import Modals from './Pages/UI/Modals'
+import Loadings from './Pages/UI/Loadings';
 
 export default class extends Component {
 	render(){
@@ -20,6 +21,7 @@ export default class extends Component {
 								<Route path='/home' component={ Home } />
 								<Route path='/ui/buttons' component={ Buttons } />
 								<Route path='/ui/modals' component={ Modals } />
+								<Route path='/ui/loadings' component={ Loadings } />
 								<Route component={ NoMatch } />
 							</Switch>
 						</App>
