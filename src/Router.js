@@ -11,6 +11,9 @@ import Loadings from './Pages/UI/Loadings'
 import Notice from './Pages/UI/Notice'
 import Messages from './Pages/UI/Messages'
 import Tab from './Pages/UI/Tab'
+import Gallery from './Pages/UI/Gallery'
+import Login from './Pages/Form/Login'
+import Register from './Pages/Form/Register'
 
 export default class extends Component {
 	render(){
@@ -28,6 +31,9 @@ export default class extends Component {
 								<Route path='/ui/notification' component={ Notice } />
 								<Route path='/ui/messages' component={ Messages } />
 								<Route path='/ui/tabs' component={ Tab } />
+								<Route path='/ui/gallery' component={ Gallery } />
+								<Route path='/form/login' component={ Login } />
+								<Route path='/form/reg' component={ Register } />
 								<Route component={ NoMatch } />
 							</Switch>
 						</App>

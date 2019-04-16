@@ -1,8 +1,3 @@
-try {
-  adddlert('haha')
-} catch (e){
-  console.log( e.message )
-  return e
-}
+const pattern = /\d+/g
 
-console.log( 1 )
+Boolean(null) == false ? console.log( true ) : console.log( false )

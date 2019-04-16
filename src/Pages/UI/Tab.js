@@ -8,6 +8,7 @@ class Tab extends Component {
   state = {
     mode: 'top',
     size: 'default',
+    activeKey: '4',
     panes: [
       {
         title: 'Tab 1',
@@ -53,12 +54,36 @@ class Tab extends Component {
     const size = e.target.value
     this.setState({ size })
   }
+  onChange = (activeKey)=>{
+    this.setState({ activeKey })
+  }
+  onEdit = (targetKey, action)=>{
+    this[action](targetKey)
+  }
   add = ()=>{
-    const newPane = { title:'New Tab', key: Math.random(), content: 'New content' }
+    const newPane = { title:'New Tab', key: new Date().getTime().toString(), content: 'New content' }
     this.setState((state)=>({
       ...state,
       panes: [...state.panes, newPane]
     }))
+  }
+  remove = (targetKey)=>{
+    let activeKey = this.state.activeKey
+    let lastIndex
+    this.state.panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
+        lastIndex = i - 1
+      }
+    })
+    const panes = this.state.panes.filter(pane => pane.key !== targetKey)
+    if (panes.length && activeKey === targetKey) {
+      if (lastIndex >= 0) {
+        activeKey = panes[lastIndex].key
+      } else {
+        activeKey = panes[0].key
+      }
+    }
+    this.setState({ panes, activeKey })
   }
 
   render(){
@@ -89,9 +114,10 @@ class Tab extends Component {
 
         <Card title='卡片式标签页' bordered={false} hoverable={true}>
           <Tabs
+            onChange={this.onChange}
             defaultActiveKey='4'
             type='editable-card'
-            onEdit={this.add}
+            onEdit={this.onEdit}
           >
             { this.state.panes.map((val,index)=>(
               <TabPane tab={val.title} key={val.key} closable={true}>{val.content}</TabPane>	
