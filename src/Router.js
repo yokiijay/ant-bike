@@ -14,6 +14,7 @@ import Tab from './Pages/UI/Tab'
 import Gallery from './Pages/UI/Gallery'
 import Login from './Pages/Form/Login'
 import Register from './Pages/Form/Register'
+import BasicTable from './Pages/Table/BasicTable'
 
 export default class extends Component {
 	render(){
@@ -34,6 +35,7 @@ export default class extends Component {
 								<Route path='/ui/gallery' component={ Gallery } />
 								<Route path='/form/login' component={ Login } />
 								<Route path='/form/reg' component={ Register } />
+								<Route path='/table/basic' component={ BasicTable } />
 								<Route component={ NoMatch } />
 							</Switch>
 						</App>
