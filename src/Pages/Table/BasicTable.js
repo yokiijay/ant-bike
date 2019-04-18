@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 
 // Components
 import { Card, Table, Tag } from 'antd'
@@ -12,25 +13,49 @@ const columns = [
   )},
   {title: 'Birthday', dataIndex: 'birthday'},
 ]
+const columns2 = [
+  {title: 'Username', dataIndex: 'username', render: text=><a href="javascript:;">{text}</a>},
+  {title: 'Gender', dataIndex: 'sex'},
+  {title: 'Motion', dataIndex: 'state'},
+  {title: 'Favorite', dataIndex: 'interest'},
+  {title: 'Born In', dataIndex: 'birthday', render: tag=>(
+    <span><Tag color='green'>{tag.toUpperCase()}</Tag></span>
+  )},
+  {title: 'Address', dataIndex: 'address'},
+  {title: 'Time', dataIndex: 'time'},
+]
 
 class BasicTable extends Component {
   state = {
     dataSource: [],
     dongtaiSource: [],
+    loading: true
   }
 
   render(){
-    const { dataSource, dongtaiSource } = this.state
+    const { dataSource, dongtaiSource, loading } = this.state
     return(
       <div>
         <Card title='基础表格' bordered={false} hoverable>
           <Table dataSource={ dataSource } columns={ columns } pagination={false} bordered />
         </Card>
         <Card title='动态表格' bordered={false} hoverable>
-          <Table dataSource={ dongtaiSource } columns={ columns } pagination={false} bordered />
+          <Table loading={loading} dataSource={ dongtaiSource } columns={ columns2 } pagination={false} bordered />
         </Card>
       </div>
     )
+  }
+
+  request = ()=>{
+    const baseUrl = 'https://easy-mock.com/mock/5cb68dd0e3926e3006389002/api/'
+    axios.get(`${baseUrl}getlist`).then((res)=>{
+      console.log( res )
+      const dongtaiSource = res.data.data.list
+      this.setState({
+        dongtaiSource,
+        loading: false
+      })
+    })
   }
 
   componentDidMount(){
@@ -55,7 +80,10 @@ class BasicTable extends Component {
     }]
 
     this.setState({
-      dataSource
+      dataSource,
+      loading: true
+    },()=>{
+      this.request()
     })
   }
 }
