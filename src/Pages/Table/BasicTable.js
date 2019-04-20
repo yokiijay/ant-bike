@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
+import Axios from '../axios'
 
 // Components
 import { Card, Table, Tag } from 'antd'
@@ -49,7 +50,6 @@ class BasicTable extends Component {
   request = ()=>{
     const baseUrl = 'https://easy-mock.com/mock/5cb68dd0e3926e3006389002/api/'
     axios.get(`${baseUrl}getlist`).then((res)=>{
-      console.log( res )
       const dongtaiSource = res.data.data.list
       this.setState({
         dongtaiSource,
@@ -59,6 +59,21 @@ class BasicTable extends Component {
   }
 
   componentDidMount(){
+    Axios.ajax({
+      url: '/getlist',
+      data: {
+        params: {
+          page: 1
+        }
+      }
+    })
+    .then(res=>{
+      console.log( res )
+    })
+    .catch(err=>{
+      console.log( err )
+    })
+
     const dataSource = [{
       key: '1',
       username: 'Yokiijay',
